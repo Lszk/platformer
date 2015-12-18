@@ -7,7 +7,7 @@ package platformer;
 
 /**
  *
- * @author Me4
+ * @author MEEEEEE
  */
 public class Platformer {
 
