@@ -3,7 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+/*
+ * ============== NOTES =================
+ * TODO: Update live keystrokes // you said you'd do this one yeah?
+ * TODO: randomly move Rectangle around the screen. // I can takle this one unless you wanna swap?
+ */
 /**
  *
  * @author Ryan & Leszek
