@@ -5,18 +5,32 @@
  */
 package platformer;
 
+import java.awt.Graphics;
+import java.awt.Color;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 /**
  *
- * @author MEEEEEE
+ * @author Ryan & Leszek
  */
 public class Platformer {
 
+    public static void main(String[] args) {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        int x = 1;
-        int y = x*3;
+        // How should we go about organizing this code below?
+        JFrame screen = new JFrame();
+        screen.setSize(1000, 800);        
+        screen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        screen.setVisible(true);
+        
+        MainCharacter Jerry = new MainCharacter(); // Jerry, The legend reborn!
+        Jerry.setCoordinates(20, 150, 100, 200);
+        
+        screen.add(Jerry);
     }
-    
+
 }
