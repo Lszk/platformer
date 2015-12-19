@@ -1,15 +1,17 @@
+package platformer;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package platformer;
+
 
 import java.awt.Graphics;
 import javax.swing.JPanel;
 
 /**
- *
+ * ############### It automatically created this file, and I had access to it, which is good. :) ###################
  * @author Me4
  */
 public class MainCharacter extends JPanel  {
@@ -28,7 +30,6 @@ public class MainCharacter extends JPanel  {
     
     public void paint(Graphics g) {
         g.drawRect (x1, y1, x2, y2);  
-        g.drawRect (x1+5, y1+5, x2+5, y2+5);  
     }
     
 }
