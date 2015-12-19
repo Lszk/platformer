@@ -42,16 +42,19 @@ public class Platformer
         
     }
     
-    //THIS IS FOR YOU <3
     public static void makePicture()
     {
-        JFrame screen = new JFrame();
+;
+        JFrame screen = new JFrame();;
+        
         MovementKeystrokes MoveIt = new MovementKeystrokes();
-        screen.add(MoveIt);
+        
+        
         screen.setSize(1000, 1000); 
         screen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         screen.setVisible(true);
-
+        
+        screen.add(MoveIt);
 
     }
 }
