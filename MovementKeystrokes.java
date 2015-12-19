@@ -31,7 +31,7 @@ public class MovementKeystrokes extends JPanel implements ActionListener, KeyLis
     
     public MovementKeystrokes()
     {
-        setBackground(Color.BLUE);
+        setBackground(Color.WHITE);
         t.start();
         addKeyListener(this);
         this.setFocusable(true);
@@ -40,9 +40,10 @@ public class MovementKeystrokes extends JPanel implements ActionListener, KeyLis
     
         public void paintComponent(Graphics g)
         {
-        super.paintComponent(g);
         MainCharacter Jerry = new MainCharacter();
         Jerry.setCoordinates(x, y, 50, 50);
+        super.paintComponent(g);
+
         }
     
     @Override
@@ -80,18 +81,22 @@ public class MovementKeystrokes extends JPanel implements ActionListener, KeyLis
     switch( code ) 
     { 
         case KeyEvent.VK_UP:
+            setBackground(Color.BLUE);
             yMove = 3;
             xMove = 0;
             break;
         case KeyEvent.VK_DOWN:
+            setBackground(Color.GREEN);
             yMove = -3;
             xMove = 0;
             break;
         case KeyEvent.VK_LEFT:
+            setBackground(Color.BLACK);
             xMove = -3;
             yMove = 0;
             break;
         case KeyEvent.VK_RIGHT :
+            setBackground(Color.YELLOW);
             xMove = 3;
             yMove = 0;
             break;
@@ -107,18 +112,22 @@ public class MovementKeystrokes extends JPanel implements ActionListener, KeyLis
     int code = e.getKeyCode();
     switch( code ) { 
         case KeyEvent.VK_UP:
+            setBackground(Color.WHITE);
             yMove = 0;
             xMove = 0;
             break;
         case KeyEvent.VK_DOWN:
+            setBackground(Color.WHITE);
             yMove = 0;
             xMove = 0;
             break;
         case KeyEvent.VK_LEFT:
+            setBackground(Color.WHITE);
             xMove = 0;
             yMove = 0;
             break;
         case KeyEvent.VK_RIGHT :
+            setBackground(Color.WHITE);
             xMove = 0;
             yMove = 0;
             break;
