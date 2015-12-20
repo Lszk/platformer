@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 /**
- *
+ * USE THE ARROW KEYS TO MOVE HIM AROUND
  * @author M18x
  */
 public class MovementKeystrokes extends JPanel implements ActionListener, KeyListener
@@ -112,16 +112,16 @@ public class MovementKeystrokes extends JPanel implements ActionListener, KeyLis
     switch( code ) 
     { 
         case KeyEvent.VK_UP:
-            yMove = 0;
+            slow();
             break;
         case KeyEvent.VK_DOWN:
-            yMove = 0;
+            slow();
             break;
         case KeyEvent.VK_LEFT:
-            xMove = 0;
+            slow();
             break;
         case KeyEvent.VK_RIGHT :
-            xMove = 0;
+            slow();
             break;
      }
     }
@@ -136,5 +136,25 @@ public class MovementKeystrokes extends JPanel implements ActionListener, KeyLis
     {
         System.out.print(y);
         return y;
+    }
+    
+    public void slow()
+    {
+        int t = 40;
+          ActionListener taskPerformer = new ActionListener() {
+      public void actionPerformed(ActionEvent evt) {
+          if (xMove>0)
+              xMove--;
+          else if (xMove<0)
+              xMove++;
+          else if (yMove<0)
+              yMove++;
+          else if (yMove>0)
+              yMove--;
+      }
+  };
+        //if((yMove>0)||(xMove>0))
+        new Timer(t, ).start();
+        
     }
 }
