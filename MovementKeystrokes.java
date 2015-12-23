@@ -23,10 +23,7 @@ import javax.swing.Timer;
  */
 public class MovementKeystrokes extends JPanel implements ActionListener, KeyListener
 {
-    Timer t = new Timer(5, this); // We have a lot more adjustability with the speed 
-    //at which the player travels by changing the timer to be more specific fractions 
-    //between SPEED/TIME. I'd like to do acceleration eventually with this. Perharps I'll 
-    //Look into that tomorrow
+    Timer t = new Timer(1, this);
     int x = 150;
     int y = 150; 
     int height = 80;
@@ -34,7 +31,7 @@ public class MovementKeystrokes extends JPanel implements ActionListener, KeyLis
     int yMove = 0;
     int xMove = 0;
     
-    int speed = 10; //This will be fun to play around with
+    int speed = 1; //This will be fun to play around with
     
     MainCharacter Jerry = new MainCharacter();
     
@@ -140,7 +137,7 @@ public class MovementKeystrokes extends JPanel implements ActionListener, KeyLis
     
     public void slow()
     {
-        int t = 40;
+        /*int t = 40;
           ActionListener taskPerformer = new ActionListener() {
       public void actionPerformed(ActionEvent evt) {
           if (xMove>0)
@@ -151,10 +148,15 @@ public class MovementKeystrokes extends JPanel implements ActionListener, KeyLis
               yMove++;
           else if (yMove>0)
               yMove--;
+          else 
+        Timer(t, actionPerformed).start();
+              
       }
   };
-        //if((yMove>0)||(xMove>0))
-        new Timer(t, ).start();
-        
+        if((yMove>0)||(xMove>0))
+        new Timer(t, actionPerformed).start();
+        */
+        yMove = 0;
+        xMove  = 0;
     }
 }
