@@ -29,11 +29,17 @@ public class MovementKeystrokes extends JPanel implements ActionListener, KeyLis
     int height = 80;
     int width = 30;
     int yMove = 0;
-    int xMove = 0;
     
-    int speed = 1; //This will be fun to play around with
+    
+    double acceleration = 0.3; //This will be fun to play around with
+    double deceleration = 1;
+    double speed = 10;
+    double maxSpeed = 10;
+    boolean beingPressed = false;
     
     MainCharacter Jerry = new MainCharacter();
+    
+
     
     public MovementKeystrokes()
     {
@@ -49,14 +55,28 @@ public class MovementKeystrokes extends JPanel implements ActionListener, KeyLis
         Jerry.paint(g);
     }
     
+        
+       
     @Override
         public void actionPerformed(ActionEvent e)
         {
         Jerry.setCoordinates(x, y, width, height);
         repaint();
         
+        if (beingPressed == false && speed >0){
+            speed -= deceleration;
+        } else if (beingPressed == true){
+            speed += acceleration;
+            if (speed > maxSpeed){
+                speed = maxSpeed;
+            }
+        }
+        
+        if (speed <0)
+            speed = 0;
+        
         y += yMove;
-        x += xMove;
+        x += speed;
 
         if(x<0){ //This is cool because it allows for the user never to be able to go backwards in the level
             x = 0;
@@ -84,16 +104,19 @@ public class MovementKeystrokes extends JPanel implements ActionListener, KeyLis
     switch( code ) 
     { 
         case KeyEvent.VK_UP:
-            yMove = -speed;
+            //acceleration += 1;
+            //yMove 
             break;
         case KeyEvent.VK_DOWN:
-            yMove = speed;
+           // yMove = speed;
             break;
         case KeyEvent.VK_LEFT:
-            xMove = -speed;
+           // xMove = -speed;
             break;
         case KeyEvent.VK_RIGHT :
-            xMove = speed;
+            
+            beingPressed = true;
+                
             break;
      }
     }
@@ -109,16 +132,16 @@ public class MovementKeystrokes extends JPanel implements ActionListener, KeyLis
     switch( code ) 
     { 
         case KeyEvent.VK_UP:
-            slow();
+            //slow();
             break;
         case KeyEvent.VK_DOWN:
-            slow();
+            //slow();
             break;
         case KeyEvent.VK_LEFT:
-            slow();
+           // slow();
             break;
         case KeyEvent.VK_RIGHT :
-            slow();
+            beingPressed = false;
             break;
      }
     }
@@ -135,28 +158,5 @@ public class MovementKeystrokes extends JPanel implements ActionListener, KeyLis
         return y;
     }
     
-    public void slow()
-    {
-        /*int t = 40;
-          ActionListener taskPerformer = new ActionListener() {
-      public void actionPerformed(ActionEvent evt) {
-          if (xMove>0)
-              xMove--;
-          else if (xMove<0)
-              xMove++;
-          else if (yMove<0)
-              yMove++;
-          else if (yMove>0)
-              yMove--;
-          else 
-        Timer(t, actionPerformed).start();
-              
-      }
-  };
-        if((yMove>0)||(xMove>0))
-        new Timer(t, actionPerformed).start();
-        */
-        yMove = 0;
-        xMove  = 0;
-    }
+
 }
